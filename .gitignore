@@ -1,0 +1,4 @@
+node_modules/
+nutritrack.db
+nutritrack.db-wal
+nutritrack.db-shm
