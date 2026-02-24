@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From AI-Assisted to AI-First</title>
+<link rel="stylesheet" href="https://esm.sh/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://esm.sh/reveal.js@5.1.0/dist/theme/black.css">
+<style>
+  .reveal-viewport { background: #0a0a0a !important; }
+  .reveal { font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif; }
+  .reveal h1, .reveal h2, .reveal h3 { font-weight: 700; text-transform: none; letter-spacing: -0.02em; }
+  .reveal h1 { font-size: 2.2em; color: #fff; }
+  .reveal h2 { font-size: 1.6em; color: #fff; }
+  .reveal h3 { font-size: 1.2em; color: #8bf; }
+  .reveal p, .reveal li { font-size: 0.75em; line-height: 1.6; color: #ccc; }
+  .reveal .subtitle { font-size: 0.6em; color: #888; margin-top: 0.5em; }
+  .reveal .highlight { color: #4fc3f7; font-weight: 600; }
+  .reveal .warn { color: #ff8a65; font-weight: 600; }
+  .reveal .good { color: #81c784; font-weight: 600; }
+  .reveal .dim { color: #666; }
+  .reveal .big-number { font-size: 3em; font-weight: 800; color: #4fc3f7; margin: 0.3em 0; }
+  .reveal .big-quote { font-size: 1.1em; font-style: italic; color: #aaa; border-left: 4px solid #4fc3f7; padding-left: 1em; margin: 1em 0; text-align: left; }
+  .reveal pre { width: 100%; font-size: 0.55em; box-shadow: none; background: #111; border: 1px solid #333; border-radius: 8px; }
+  .reveal code { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; }
+  .reveal .code-bad { border-left: 4px solid #ff5252; }
+  .reveal .code-good { border-left: 4px solid #69f0ae; }
+  .reveal .vs-container { display: flex; gap: 1em; align-items: flex-start; }
+  .reveal .vs-container > div { flex: 1; }
+  .reveal .slide-number { font-size: 14px !important; color: #444 !important; }
+  .reveal ul { list-style: none; padding-left: 0; }
+  .reveal ul li::before { content: "→ "; color: #4fc3f7; font-weight: bold; }
+  .reveal .problem-flag { background: #1a1a2e; border-left: 4px solid #ff5252; padding: 0.4em 0.8em; margin: 0.3em 0; border-radius: 0 6px 6px 0; text-align: left; font-size: 0.6em; }
+  .reveal .problem-flag strong { color: #ff8a65; }
+  .reveal section { text-align: left; padding: 0 1em; }
+  .reveal .center-slide { text-align: center; }
+  .reveal .fragment.fade-in-then-semi-out.visible:not(.current-fragment) { opacity: 0.4; }
+  .reveal .three-attempts { display: flex; gap: 1em; margin: 1em 0; }
+  .reveal .attempt-card { flex: 1; background: #111; border-radius: 8px; padding: 0.8em; border-top: 3px solid #333; }
+  .reveal .attempt-card.bad { border-top-color: #ff5252; }
+  .reveal .attempt-card.mid { border-top-color: #ffb74d; }
+  .reveal .attempt-card.ok { border-top-color: #69f0ae; }
+  .reveal .attempt-card h4 { margin: 0 0 0.4em 0; font-size: 0.7em; color: #fff; }
+  .reveal .attempt-card p { font-size: 0.55em; margin: 0; }
+  .reveal .shift-card { background: #0d1b2a; border-radius: 8px; padding: 0.7em 1em; margin: 0.4em 0; border-left: 3px solid #4fc3f7; }
+  .reveal .shift-card h4 { color: #4fc3f7; margin: 0 0 0.2em 0; font-size: 0.65em; }
+  .reveal .shift-card p { font-size: 0.55em; margin: 0; color: #aaa; }
+  .reveal .gameplan-day { background: #111; border-radius: 8px; padding: 0.45em 0.8em; margin: 0.25em 0; font-size: 0.55em; border-left: 3px solid #333; }
+  .reveal .gameplan-day.today { border-left-color: #4fc3f7; }
+  .reveal .gameplan-day strong { color: #fff; }
+  .reveal .scale-visual { display: flex; align-items: center; justify-content: center; gap: 0; margin: 0.6em 0 0.3em 0; }
+  .reveal .scale-end { font-size: 0.55em; color: #888; padding: 0.4em 0.8em; max-width: 140px; text-align: center; }
+  .reveal .scale-bar { flex: 1; height: 6px; background: linear-gradient(90deg, #5c6bc0 0%, #7986cb 30%, #4fc3f7 60%, #4dd0e1 100%); border-radius: 3px; position: relative; max-width: 500px; }
+  .reveal .scale-labels { display: flex; justify-content: space-between; font-size: 0.45em; color: #555; margin-top: 0.3em; max-width: 500px; margin-left: auto; margin-right: auto; }
+</style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1. TITLE -->
+    <section class="center-slide">
+      <h1>From AI-Assisted<br>to <span class="highlight">AI-First</span></h1>
+      <p class="subtitle">Going from tab-tab-tab to AI writing all of my code</p>
+      <br>
+      <p style="font-size:0.5em;color:#555;">Vincent Quigley · Feb 2026</p>
+      <aside class="notes">Open relaxed. You're a guest sharing your journey, not a lecturer. Make eye contact (camera). Smile. Take a breath before you start. The pause signals confidence.</aside>
+    </section>
+
+    <!-- 2. About me -->
+    <section>
+      <h2>Vincent Quigley</h2>
+      <p style="font-size:0.7em;color:#aaa;">Software Engineering Manager at Sanity</p>
+      <p style="font-size:0.6em;color:#666;">Sanity is a modern, developer-friendly headless Content Management System (CMS) that treats content as structured data, allowing it to be reused across websites, apps, and APIs. It separates backend content storage from the front-end, enabling real-time collaboration via the open-source Sanity Studio and fast, flexible content delivery.</p>
+
+      <aside class="notes">30 seconds max. "I'm Vincent, I'm an engineering manager at Sanity. Sanity is a content platform — so the examples you'll see come from real production code. I wrote a blog post about this journey and that's why I'm here talking to you today. So let's get into it."</aside>
+    </section>
+
+    <!-- 3. Where are you on the journey? -->
+    <section>
+      <h2>Where are you on the AI journey?</h2>
+      <br>
+      <ul>
+        <li class="fragment fade-in-then-semi-out"><strong style="color:#fff;">Group 1:</strong> Haven't used AI for coding</li>
+        <li class="fragment fade-in-then-semi-out"><strong style="color:#fff;">Group 2:</strong> AI-assisted: autocomplete, tab-tab-tab, Copilot</li>
+        <li class="fragment fade-in-then-semi-out"><strong style="color:#fff;">Group 3:</strong> AI-first: you describe the problem, AI builds the solution</li>
+      </ul>
+      <br>
+      <p class="fragment" style="color:#4fc3f7;font-size:0.8em;font-weight:600;">The jump from 1 to 2 is natural. It's intellisense on steroids.<br>The jump from 2 to 3? That's the leap. That's what this talk is about.</p>
+      <aside class="notes">Show of hands for each group. Pause between each. Let the room settle. Most will be Group 2. This gets them physically engaged in the first 30 seconds and gives you a live read on the room. "Wherever you raised your hand. I've been there."</aside>
+    </section>
+
+    <!-- 3. Where I am -->
+    <section>
+      <h2>Where I am</h2>
+      <br>
+      <ul>
+        <li class="fragment">Two years ago: writing every line myself</li>
+        <li class="fragment">One year ago: AI-assisted: Copilot, autocomplete</li>
+        <li class="fragment">Six months ago: made the leap to AI-first</li>
+        <li class="fragment">Today: <span class="highlight">AI writes all my code. The first shot is 80% there.</span></li>
+      </ul>
+      <aside class="notes">Timeline of your journey. Quick, honest, relatable. Transition: "So how did I get from there to here? It started with a mental model."</aside>
+    </section>
+
+    <!-- 4. How I started out -->
+    <section>
+      <h2>How I started out</h2>
+      <p style="font-size:0.7em;color:#aaa;">AI as a junior developer who doesn't learn.<br>Every session is their first day.</p>
+      <br>
+      <div class="three-attempts">
+        <div class="attempt-card bad fragment">
+          <h4>Attempt 1</h4>
+          <p><span class="warn">95% garbage</span><br>AI builds context. You identify the real challenges.</p>
+        </div>
+        <div class="attempt-card mid fragment">
+          <h4>Attempt 2</h4>
+          <p><span style="color:#ffb74d;">50% garbage</span><br>AI understands nuances. You've defined approaches.</p>
+        </div>
+        <div class="attempt-card ok fragment">
+          <h4>Attempt 3</h4>
+          <p><span class="good">Workable</span><br>A starting point to iterate from. Not final code.</p>
+        </div>
+      </div>
+      <p class="fragment" style="font-size:0.85em;color:#4fc3f7;font-weight:600;">I spent the last 6 months learning how to go straight to Attempt 3.</p>
+      <aside class="notes">This mental model isn't wrong. It's incomplete. It describes the starting experience, not the ceiling. INTERACTION: "Has anyone here asked AI to write something and thought 'this is completely wrong'? ...Yeah. That's attempt 1. That's supposed to happen." "I suspect what I'm doing now will look just as naive in another six months."</aside>
+    </section>
+
+    <!-- 5. The Scale -->
+    <section class="center-slide">
+      <h2>The scale</h2>
+      <p style="font-size:0.7em;color:#aaa;">On one end, you write every line.<br>On the other, you're a tech lead of a team of agents.</p>
+      <div class="scale-visual">
+        <div class="scale-end" style="color:#7986cb;">Write<br>every line</div>
+        <div class="scale-bar"></div>
+        <div class="scale-end" style="color:#4dd0e1;">Direct a<br>team of agents</div>
+      </div>
+      <div class="scale-labels">
+        <span>typing</span>
+        <span>building</span>
+        <span>reviewing</span>
+        <span>directing</span>
+      </div>
+      <p class="fragment" style="font-size:0.85em;color:#4fc3f7;font-weight:600;">This isn't a switch you flip. It's a skill you develop.</p>
+      <aside class="notes">This is the conceptual anchor for the rest of the talk. Every shift moves them further along this scale. Don't rush it. Let them absorb the visual. "You're all somewhere on this line. The goal isn't to jump to the end. It's to move deliberately."</aside>
+    </section>
+
+    <!-- 6. What goes wrong -->
+    <section>
+      <h2>What goes wrong</h2>
+      <br>
+      <div class="problem-flag fragment"><strong>The learning problem:</strong> AI doesn't retain anything between sessions. You fix the same misunderstandings repeatedly.</div>
+      <div class="problem-flag fragment"><strong>The confidence problem:</strong> AI confidently writes broken code and tells you it's great. You review everything line by line. Slower than writing it yourself.</div>
+      <div class="problem-flag fragment"><strong>The context limit:</strong> Large codebases overwhelm the AI. You're constantly re-explaining your own system.</div>
+      <div class="problem-flag fragment"><strong>The "faster to do it myself" trap:</strong> Sometimes true. And that thought kills the learning curve.</div>
+      <br>
+      <p class="fragment" style="color:#4fc3f7;font-size:0.7em;">Sound familiar? Good. Here's what I changed.</p>
+      <aside class="notes">Inoculate before instruction. Get the fears on the table so they can absorb the solutions without anxiety. Transition: "Okay, now that I've thoroughly scared you. [Pause, smile]. Here's the good news."</aside>
+    </section>
+
+    <!-- 7. Shift 1: Setup (Part 1) -->
+    <section>
+      <h2>Shift 1: Set the agent up for success</h2>
+      <p style="font-size:0.65em;color:#aaa;">Give it the context you'd give a new engineer picking up a ticket.</p>
+      <div class="shift-card fragment">
+        <h4>Give it the context you know</h4>
+        <p>Don't assume the AI will figure something out. It's smart, but it isn't a mind reader. Share what you know about the problem, the codebase, the constraints.</p>
+      </div>
+      <div class="shift-card fragment">
+        <h4>Point at existing patterns</h4>
+        <p>"We did something like this in [file]. Look at how we approached it. Look at old commits."</p>
+      </div>
+      <aside class="notes">These are the highest-leverage changes. Give context solves the "AI doesn't learn" problem. Existing patterns leverage your codebase knowledge. Transition: "And two more that compound on these..."</aside>
+    </section>
+
+    <!-- 8. Shift 1: Setup (Part 2) -->
+    <section>
+      <h2>Shift 1: Set the agent up for success</h2>
+      <p style="font-size:0.65em;color:#666;">...continued</p>
+      <div class="shift-card fragment">
+        <h4>Context files</h4>
+        <p>Architecture decisions, patterns, gotchas. Stops you re-explaining the same constraints every session.</p>
+      </div>
+      <div class="shift-card fragment">
+        <h4>Use the best model you can</h4>
+        <p>The difference isn't incremental. The cost is a rounding error on your engineering time.</p>
+      </div>
+      <p class="fragment" style="font-size:0.65em;color:#aaa;">This works regardless of tool: Copilot, Cursor, Claude Code, ChatGPT.<br>It's about <span class="highlight">preparation</span>, not which tool you use.</p>
+      <aside class="notes">Quick hits. Don't linger. "These all share one principle: give the AI the context it needs BEFORE it starts writing." Transition: "Now let's talk about what happens once you're in the conversation..."</aside>
+    </section>
+
+    <!-- 9. Shift 2: Explore (Part 1) -->
+    <section>
+      <h2>Shift 2: Explore problems,<br>don't give orders</h2>
+      <p style="font-size:0.65em;color:#aaa;">Stop telling AI what to build. Start telling it what to solve.</p>
+      <div class="shift-card fragment">
+        <h4>Frame problems, not tasks</h4>
+        <p>"Build me a function that validates the daily limit" → prescriptive in, prescriptive out. Usually wrong.<br>"Users are seeing budget alerts with zero usage. Here's the relevant code. What could cause this?" → the AI investigates, asks questions, lays out approaches with tradeoffs.</p>
+      </div>
+      <div class="shift-card fragment">
+        <h4>The spec-first pattern</h4>
+        <p>Session 1: Think through the problem <em>with</em> AI. Write a short spec.<br>Session 2: Fresh session implements from the spec.</p>
+      </div>
+      <aside class="notes">"I stopped telling the AI what to build and started telling it what to solve." This is the fundamental mindset shift. Most people use AI like a command line. Type instruction, get output. But the best results come from collaboration, not commands. Spec-first is the demo. Transition: "And two more that compound on these..."</aside>
+    </section>
+
+    <!-- 10. Shift 2: Explore (Part 2) -->
+    <section>
+      <h2>Shift 2: Explore problems,<br>don't give orders</h2>
+      <p style="font-size:0.65em;color:#666;">...continued</p>
+      <div class="shift-card fragment">
+        <h4>Push back when it's wrong</h4>
+        <p>AI will confidently go the wrong direction. Say "that's not right, here's why." It course-corrects fast. Your domain knowledge is the steering wheel.</p>
+      </div>
+      <div class="shift-card fragment">
+          <h4>Use Plan Mode</h4>
+          <p>Claude's Plan mode is much quicker and cheaper to validate the Agent is on the right direction than jumping straight into code.</p>
+      </div>
+      <p class="fragment" style="font-size:0.65em;color:#aaa;">Shift 1 is about what you prepare. Shift 2 is about <span class="highlight">how you collaborate</span>.</p>
+      <aside class="notes">"It's like rubber duck debugging, except the duck talks back." These techniques work together. Plan mode surfaces the right questions. Pushing back keeps the AI honest. And the conversation itself clarifies your own thinking. Transition: "Let me show you both shifts in action."</aside>
+    </section>
+
+    <!-- 11. DEMO -->
+    <section class="center-slide">
+      <h1 style="font-size:3em;">Demo</h1>
+      <aside class="notes">Switch screen share to Claude Code. Beat 1: "Before we write code. What should we think about?" Beat 2: Push back: "User's TZ is on their profile. Aggregate in SQL." Beat 3: "Summarize what we've decided" into mini-spec. Beat 4: "Now implement this. Follow the spec." Beat 5: 2 minutes of thinking changed everything. If Claude is slow: "While it's thinking. Notice I didn't tell it HOW to solve the timezone problem. I told it the constraint."</aside>
+    </section>
+
+    <!-- 12. Compounding -->
+    <section class="center-slide">
+      <h2>These shifts didn't add up.<br>They <span class="highlight">multiplied.</span></h2>
+      <br>
+      <div style="display:flex;gap:2em;justify-content:center;">
+        <div class="fragment" style="text-align:center;">
+          <p class="big-number" style="font-size:2em;">5%</p>
+          <p style="font-size:0.5em;color:#888;">6 months ago</p>
+        </div>
+        <div class="fragment" style="text-align:center;font-size:2em;color:#333;padding-top:0.8em;">→</div>
+        <div class="fragment" style="text-align:center;">
+          <p class="big-number" style="font-size:2em;">80%</p>
+          <p style="font-size:0.5em;color:#888;">today</p>
+        </div>
+        <div class="fragment" style="text-align:center;font-size:2em;color:#333;padding-top:0.8em;">→</div>
+        <div class="fragment" style="text-align:center;">
+          <p class="big-number" style="font-size:2em;">?</p>
+          <p style="font-size:0.5em;color:#888;">6 months from now</p>
+        </div>
+      </div>
+      <br>
+      <p class="fragment" style="font-size:0.6em;color:#888;">Better specs → better first attempts → less review → faster shipping → more time to work on what matters.</p>
+      <aside class="notes">"I want to be honest. The tools are changing fast and so am I. What I'm sharing is a snapshot, not a system. But the direction is clear, and the momentum is real."</aside>
+    </section>
+
+    <!-- 13. Close -->
+    <section class="center-slide">
+      <h2>The leap</h2>
+      <br>
+      <p style="font-size:0.7em;color:#aaa;">It took me months of trial and error to find what works for me.<br>We're all figuring this out together. I just got a head start on some of the mistakes.</p>
+      <br>
+      <p class="fragment" style="font-size:0.8em;color:#4fc3f7;font-weight:600;">Try something. If it doesn't work, learn why and try something else. That's the whole process.</p>
+      <br>
+      <p class="fragment" style="font-size:0.7em;color:#aaa;">Have fun with it.</p>
+      <aside class="notes">Let the last line breathe. Smile. Pause. Then: "I'd love to take your questions."</aside>
+    </section>
+
+    <!-- 14. Q&A -->
+    <section class="center-slide">
+      <h1 style="font-size:2.5em;">Q&A</h1>
+      <br>
+      <p style="font-size:0.6em;color:#555;"> </p>
+      <aside class="notes">PREPPED ANSWERS. Tool choice: Start with what you have, workflow matters more than tool. Cost: 1000-1500/month going all-in, but start free, ROI is obvious. Replace us?: Developers who use AI outpace those who don't. You become more valuable. Bitbucket: Everything shown is tool-agnostic, start with thinking patterns. Code quality: Actually MORE critical now. No emotional attachment = better reviews. Sensitive code: Check AI policy, review security-critical sections line by line. Large codebase: Break it down, point AI at specific files not the whole repo.</aside>
+    </section>
+
+  </div>
+</div>
+
+<script type="module">
+  import Reveal from 'https://esm.sh/reveal.js@5.1.0';
+  import RevealNotes from 'https://esm.sh/reveal.js@5.1.0/plugin/notes/notes';
+
+  const deck = new Reveal({
+    hash: true,
+    controls: true,
+    progress: true,
+    center: true,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    showNotes: false,
+    width: 1280,
+    height: 720,
+    margin: 0.08,
+    slideNumber: true,
+    plugins: [RevealNotes]
+  });
+
+  deck.initialize();
+</script>
+</body>
+</html>
